@@ -113,7 +113,8 @@ class StdoutProxy:
 
         # Make sure `write_and_flush` is executed *in* the event loop, not in
         # another thread.
-        self.loop.call_soon_threadsafe(write_and_flush_in_loop)
+        # self.loop.call_soon_threadsafe(write_and_flush_in_loop)
+        write_and_flush_in_loop()
 
     def _write(self, data: str) -> None:
         """
